@@ -1,0 +1,11 @@
+type: 'python:3.9'
+web:
+    commands:
+        start: "uvicorn api.index:app --reload --port 8000 --lifespan on"
+    locations:
+        "/":
+            passthru: true
+        "/static":
+            root: "static"
+            expires: 1h
+            allow: true
